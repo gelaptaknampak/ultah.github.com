@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QnA</title>
+    <meta http-equiv="X-UA-Compatible" content="0; url=page3.html">
+    <style>
+        body {
+            font-family: 'Comic Sans', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+            overflow-y: hidden;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        #qna-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        #question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #answer {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #result {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(0.8);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+
+        p {
+            text-align: justify;
+            text-decoration: none;
+            font-family: 'Comic Sans', sans-serif;
+            font-weight: lighter;
+            padding-right: 50px;
+            padding-left: 50px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        #image-left{
+            margin: 20px auto;
+            max-width: 15%;
+            margin-left: 1000px;
+            
+        }
+
+        #image-right{
+            max-width: 15%;
+            margin: 20px auto;
+            transform: translateY(-280px);
+        }
+
+        #nextButton{
+            transform: translateY(-500px);
+            margin-left: 550px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1">Nanya-nanya Dong</h1>
+    <div id="qna-container">
+        <div id="question"></div>
+        <input type="text" id="answer" placeholder="Masukkan jawaban Anda di sini">
+        <button  type="submit" onclick="submitAnswer()" id="button">Jawab</button>
+    </div>
+    <div id="result"></div>
+    <button id="nextButton">Lanjut</button>
+
+    <script>
+        // Array pertanyaan
+        const qna = [
+            "Berapa usiamu saat ini?",
+        ];
+        
+        const userAnswers = [];
+
+        let currentQuestion = 0;
+
+        const questionContainer = document.getElementById("question");
+        const answerInput = document.getElementById("answer");
+        const resultContainer = document.getElementById("result");
+        const qnaContainer = document.getElementById("qna-container");
+        const button = document.getElementById("button");
+        const nextButton = document.getElementById("nextButton");
+        const h1 = document.getElementById("h1");
+        
+
+        function loadQuestion() {
+            if (currentQuestion < qna.length) {
+                qnaContainer.classList.remove("fade-out");
+                questionContainer.innerText = qna[currentQuestion];
+                answerInput.value = "";
+                resultContainer.innerText = "";
+                nextButton.style.display = "none";
+                
+                if (currentQuestion == qna.length - 1) {
+                    nextButton.style.display = "none";
+                }
+            } else {
+                qnaContainer.classList.add("fade-out");
+                questionContainer.innerText = "Pertanyaan selesai.";
+                h1.style.display = "none";
+                answerInput.style.display = "none";
+                button.style.display = "none";
+                nextButton.style.display = "inline-block";
+
+                displayUserAnswers();
+            }
+        }
+
+        function submitAnswer() {
+            const userAnswer = answerInput.value.trim();
+
+            if (userAnswer === "") {
+                alert("Harap diisi, jangan diskip!");
+            } else {
+                userAnswers.push(userAnswer);
+                currentQuestion++;
+                qnaContainer.classList.add("fade-out");
+                setTimeout(loadQuestion, 300);
+            }
+        }
+
+        function displayUserAnswers() {
+            const Answerusia = userAnswers[0];
+            const Answerharapan = userAnswers[1];
+            const Answermakanan = userAnswers[2];
+            const Answerkado = userAnswers[3];
+            const Answercitacita = userAnswers[4];
+
+            const answersContainer = document.createElement("div");
+            answersContainer.innerHTML = "<h2>Pesan-pesan dari aku untukmu</h2>";
+
+            const answerItem = document.createElement("div");
+            answerItem.innerHTML = `<p>Wah sekarang usiamu sudah mencapai ${Answerusia} tahun. Tak terasa berjalannya waktu telah menambah usiamu 😭😭. Semoga ${Answerharapan} yang menjadi harapanmu ke depannya dapat terwujud dan aku doakan kamu bisa mendapatkan ${Answerkado} yang kamu inginkan 🤭🤭. Jujur aku cuma bisa mendoakan aja hehe dan satu lagi semoga ${Answercitacita} yang menjadi impian dan cita-citamu dapat menjadi kenyataan karena, 
+                    pepatah mengatakan Bermimpilah setinggi langit, karena jika kamu jatuh, kamu akan mendarat di antara bintang-bintang.
+                    Boleh bermimpi setinggi-tingginya tapi inget, kalo ketinggian terus cuma jadi halu mending gak usah wkwkwk 😁😁😁. 
+                    Dan kalo kamu tahu kenapa tadi nanya makanan favorit? ya sebenernya nanya aja si iseng aja gituu sama lagi gabut juga jadinya bikin website ini deh 😌😌 hehe 😄😄.
+                    Oh ya kalo kamu suka makan ${Answermakanan} jangan lupa undang aku kita makan bareng traktir yaaaahh!!!! 😋😜.
+                    Itu aja yang ingin kusampaikan semoga dapat membuat senyuman diwajahmu walaupun gak ada lucu-lucunya.</p><br>
+                    <p>Salam manis dariku untukmu 😸😸.</p>
+                    <div>
+                        <img id="image-left" src="pngegg (1).png">
+                    </div>
+                    <div>
+                        <img id="image-right" src="pngegg (3).png">
+                    </div>
+                    `;
+
+            answersContainer.appendChild(answerItem);
+            resultContainer.appendChild(answersContainer);
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
+
+"Apa yang kamu harapkan kedepannya?",
+"Apa makanan kesukaan kamu?",
+"Kado apa yang kamu harapkan di ulang tahunmu?",
+"Apa cita-citamu?",

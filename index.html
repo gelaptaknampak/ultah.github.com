@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index</title>
+  <meta http-equiv="X-UA-Compatible" content="0; url=page1.html">
+  <style>
+    body {
+      background: aqua;
+      animation: backgroundAnimation 10s infinite;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      font-family: "Arial", sans-serif;
+    }
+
+    @keyframes backgroundAnimation {
+      0% { background: aqua; }
+      25% { background: coral; }
+      50% { background: mediumorchid; }
+      75% { background: lightgreen; }
+      100% { background: aqua; }
+    }
+
+    .image-top {
+      position: absolute;
+      border-radius: 30%;
+      max-width: 10%;
+      margin-top: 80px;
+    }
+
+    .perintah {
+      position: absolute;
+      left: 500px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .toxic {
+      position: absolute;
+      left: 160px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .image-left {
+      position: absolute;
+      max-width: 15%;
+      left: -70px;
+      margin-top: 10px;
+      border-radius: 50%;
+    }
+
+    .image-mid {
+      border-radius: 20%;
+      max-width: 15%;
+      z-index: 20;
+      margin-left: 250px;
+      margin-top: 90px;
+      padding: 0;
+    }
+
+    .image-right {
+      position: absolute;
+      max-width: 15%;
+      right: -55px;
+      margin-top: -60px;
+    }
+
+    .form {
+      margin-top: 190px;
+    }
+
+    .login {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid black;
+    border-radius: 10%;
+    background: none;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    transition: color 0.3s;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    }
+
+    .login::after {
+    content: "Login";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    .login:hover::after {
+    transform: translate(-50%, -50%) scale(1.2);
+    color: rgb(72, 237, 72); /* Ganti dengan warna yang diinginkan */
+    }
+
+
+    .login:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(250, 246, 181);
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+
+    .login:hover:before {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .login:hover{
+        transform: scale(1.1);
+    }
+
+    .form input[type="text"] {
+      font-family: "Arial", sans-serif; /* Ganti dengan jenis font yang diinginkan */
+      font-size: 18px;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <p class="perintah">Nama Harus DIISI AWAS KALO GAK</p>
+    <img src="WRAITH_IS_STILL_MY_MAIN_AFTER_THE_NEW_UPDATE______TSM_ImperialHal-removebg-preview.png" class="image-top">
+  </center>
+  <img src="Transparent_Background_Discord_Anime_Emoji__HD_Png_Download_-_vhv-removebg-preview.png" class="image-left">
+  <br>  
+  <center>
+    <h1> 
+      <form action="ultah.html" onsubmit="return validateForm()">
+        <table border="0" class="form"> 
+          <tr>
+            <td>Nama </td>
+            <td>: <input type="text" id="nama" name="nama"></td>
+          </tr> 
+          <tr>
+            <td></td>
+            <td>
+              <button type="submit" name="submit" class="login">
+              </button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </h1> 
+  </center>
+
+  <p class="toxic">Fucek buat lo yang gak mau isi nama</p>
+  <img src="download-removebg-preview.png" class="image-mid">
+  <img src="Beyond_the_Boundary_Anime_Manga_Desktop___Anime_transparent_background_PNG_clipart.png" class="image-right">
+  <script>
+function validateForm() {
+  var nama = document.getElementById("nama").value;
+  if (nama === "") {
+    alert("Ngeyel banget disuruh isi nama ISI DULU WOY!");
+    return false; // Menghentikan pengiriman form
+  }
+  var url = "ultah.html?nama=" + encodeURIComponent(nama);
+  window.location.href = url;
+  return false; // Menghentikan pengiriman form
+  }
+
+  </script>
+</body>
+</html>
