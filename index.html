@@ -3,15 +3,19 @@
 <head>
   <title>Index</title>
   <meta http-equiv="X-UA-Compatible" content="0; url=page1.html">
-  <script>
-    // Mendeteksi perangkat pengguna
-    var isLaptop = /windows|mac|linux/i.test(userAgent);
-
-    // Jika perangkat bukan laptop, arahkan ke halaman lain
-    if (!isLaptop) {
-      window.location.href = 'https://www.youtube.com/'; // Ganti URL dengan halaman lain yang ingin Anda arahkan
-    }
-  </script>
+  <style>
+        @media only screen and (max-width: 900px) {
+            body {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        // Redirect if the device is not a laptop
+        if (window.innerWidth <= 900) {
+            window.location.href = 'https://www.youtube.com/'; // Ganti URL dengan halaman lain yang ingin Anda arahkan
+        }
+    </script>
   <style>
     body {
       background: aqua;
