@@ -2,55 +2,62 @@
 <html>
 <head>
     <title>QnA</title>
-    <meta http-equiv="X-UA-Compatible" content="0; url=page3.html">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Comic Sans', sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
             padding: 20px;
+            padding-top: 20px;
+            overflow-x: hidden;
             overflow-y: hidden;
+            min-height: 100vh;
+            background-color: #A9C9FF;
+            background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
         }
 
         h1 {
-            color: #333;
+            color: white;
             text-align: center;
+            margin-top: 50px;
         }
 
         #qna-container {
-            background-color: #fff;
+            background-color: #D9AFD9;
+            background-image: linear-gradient(0deg, #D9AFD9 20%, #97D9E1 100%);
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            margin-top: 100px;
             transition: opacity 0.3s ease;
         }
 
         #question {
             font-size: 18px;
             margin-bottom: 10px;
+            color: white;
         }
 
         #answer {
             width: 100%;
-            padding: 10px;
+            height: 30px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
             margin-bottom: 10px;
-        }
-
-        #result {
-            font-size: 16px;
-            font-weight: bold;
+            background-color: #8EC5FC;
+            background-image: linear-gradient(62deg, #8EC5FC 20%, #E0C3FC 60%);
+            color: white;
+            text-indent: 10px;
         }
 
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #74EBD5;
+            background-image: linear-gradient(90deg, #74EBD5 5%, #9FACE6 95%);
             color: #fff;
             border: none;
             border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             font-size: 16px;
             cursor: pointer;
         }
@@ -76,39 +83,124 @@
             opacity: 0;
         }
 
+        #answerItem{
+            margin-top: -200px;
+        }
+
         #image-left{
             margin: 20px auto;
             max-width: 15%;
             margin-left: 1000px;
-            
+            margin-top: -10px;
+            animation-delay: 16s;
         }
 
         #image-right{
             max-width: 15%;
             margin: 20px auto;
-            transform: translateY(-280px);
+            transform: translateY(-300px);
+            animation-delay: 16s;
         }
 
-        #nextButton{
-            transform: translateY(-500px);
-            margin-left: 550px;
+
+        .fade-out {
+            opacity: 0;
         }
+        
+        .fade-in {
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0;
+            animation: fadeAnimation 2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+        }
+
+        @keyframes fadeAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+        
+        #message1{
+            animation-delay: 1s;
+        }
+
+        #message2 {
+        animation-delay: 2s;
+        }
+
+        #message3 {
+        animation-delay: 4s;
+        }
+
+        #message4 {
+        animation-delay: 6s;
+        }
+
+        #message5 {
+        animation-delay: 8s;
+        }
+
+        #message6 {
+        animation-delay: 10s;
+        }
+
+        #message7 {
+        animation-delay: 12s;
+        }
+
+        #message8 {
+        animation-delay: 14s;
+        }
+
+        #message9 {
+        animation-delay: 16s;
+        }
+
     </style>
 </head>
 <body>
-    <h1 id="h1">Nanya-nanya Dong</h1>
+    <audio id="birthday-song" autoplay loop>
+        <source src="river flow on you.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h1 id="h1">Nanya-nanya dong</h1>
     <div id="qna-container">
         <div id="question"></div>
-        <input type="text" id="answer" placeholder="Masukkan jawaban Anda di sini">
-        <button  type="submit" onclick="submitAnswer()" id="button">Jawab</button>
+        <input type="text" id="answer">
+        <br>
+        <button id="button" onclick="submitAnswer()">Submit</button>
+        <div id="result"></div>
     </div>
-    <div id="result"></div>
-    <button id="nextButton">Lanjut</button>
+
+    <div id="answerItem" style="display: none;">
+        <h2 class="fade-in">Pesan-pesan dari aku untukmu</h2>
+        <p id="message1" class="fade-in">Wah sekarang usiamu sudah mencapai <span id="answerUsia"></span> tahun. Tak terasa berjalannya waktu telah menambah usiamu 😭😭.</p>
+        <p id="message2" class="fade-in">Semoga <span id="answerHarapan"></span> yang menjadi harapanmu ke depannya dapat terwujud dan aku doakan kamu bisa mendapatkan <span id="answerKado"></span> yang kamu inginkan 🤭🤭.</p>
+        <p id="message3" class="fade-in">Jujur aku cuma bisa mendoakan aja hehe dan satu lagi semoga <span id="answerCitacita"></span> yang menjadi impian dan cita-citamu dapat menjadi kenyataan karena pepatah mengatakan Bermimpilah setinggi langit, karena jika kamu jatuh, kamu akan mendarat di antara bintang-bintang.</p>
+        <p id="message4" class="fade-in">Jadi, jangan takut bermimpi setinggi-tingginya dan terus berusaha dan tetap semnagat dalam meraihnya 🔥🔥🔥.</p>
+        <p id="message5" class="fade-in">Kalo kamu lihat tadi kenapa nanya makanan favorit? ya sebenernya nanya aja si iseng aja gituu sama lagi gabut juga jadinya bikin website deh 😌😌 hehe 😄😄.</p>
+        <p id="message6" class="fade-in">Walaupun gabut tapi, cuma ini yang bisa kujadikan kado untuk ulang tahunmu walau sederhana semoga kamu sedikit terhibur dengan apa yang aku buat.</p>
+        <p id="message7" class="fade-in">Oh ya kalo kamu suka makan <span id="answerMakanan"></span> jangan lupa undang aku kita makan bareng traktir yaaaahh!!!! 😋😋.</p>
+        <p id="message8" class="fade-in">Itu aja yang ingin kusampaikan semoga dapat membuat senyuman diwajahmu walaupun gak ada lucu-lucunya.</p>
+        <p id="message9" class="fade-in">Salam manis dariku untukmu 😸😸.</p>
+        <div>
+            <img id="image-left" class="fade-in" src="pngegg (1).png">
+        </div>
+        <div>
+            <img id="image-right" class="fade-in" src="pngegg (3).png">
+        </div>
+    </div>
 
     <script>
-        // Array pertanyaan
         const qna = [
-            "Berapa usiamu saat ini?",
+            "Hai! Berapa usiamu sekarang?",
+            "Apa harapanmu ke depannya?",
+            "Apa makanan favoritmu?",
+            "Kalau boleh memilih, kamu ingin mendapatkan kado apa?",
+            "Apa cita-citamu?",
         ];
         
         const userAnswers = [];
@@ -120,17 +212,20 @@
         const resultContainer = document.getElementById("result");
         const qnaContainer = document.getElementById("qna-container");
         const button = document.getElementById("button");
-        const nextButton = document.getElementById("nextButton");
         const h1 = document.getElementById("h1");
         
-
+        const answerUsia = document.getElementById("answerUsia");
+        const answerHarapan = document.getElementById("answerHarapan");
+        const answerKado = document.getElementById("answerKado");
+        const answerCitacita = document.getElementById("answerCitacita");
+        const answerMakanan = document.getElementById("answerMakanan");
+        
         function loadQuestion() {
             if (currentQuestion < qna.length) {
                 qnaContainer.classList.remove("fade-out");
                 questionContainer.innerText = qna[currentQuestion];
                 answerInput.value = "";
                 resultContainer.innerText = "";
-                nextButton.style.display = "none";
                 
                 if (currentQuestion == qna.length - 1) {
                     nextButton.style.display = "none";
@@ -141,7 +236,6 @@
                 h1.style.display = "none";
                 answerInput.style.display = "none";
                 button.style.display = "none";
-                nextButton.style.display = "inline-block";
 
                 displayUserAnswers();
             }
@@ -150,52 +244,30 @@
         function submitAnswer() {
             const userAnswer = answerInput.value.trim();
 
-            if (userAnswer === "") {
-                alert("Harap diisi, jangan diskip!");
-            } else {
+            if (userAnswer != "") {
                 userAnswers.push(userAnswer);
                 currentQuestion++;
-                qnaContainer.classList.add("fade-out");
-                setTimeout(loadQuestion, 300);
+                loadQuestion();
+            }
+
+            else if(userAnswer == ""){
+                alert("Harap jangan diskip");
             }
         }
 
         function displayUserAnswers() {
-            const Answerusia = userAnswers[0];
-            const Answerharapan = userAnswers[1];
-            const Answermakanan = userAnswers[2];
-            const Answerkado = userAnswers[3];
-            const Answercitacita = userAnswers[4];
+    answerUsia.innerText = userAnswers[0];
+    answerHarapan.innerText = userAnswers[1];
+    answerMakanan.innerText = userAnswers[2];
+    answerKado.innerText = userAnswers[3];
+    answerCitacita.innerText = userAnswers[4];
 
-            const answersContainer = document.createElement("div");
-            answersContainer.innerHTML = "<h2>Pesan-pesan dari aku untukmu</h2>";
+    const answerItem = document.getElementById("answerItem");
+    answerItem.style.display = "block";
+}
 
-            const answerItem = document.createElement("div");
-            answerItem.innerHTML = `<p>Wah sekarang usiamu sudah mencapai ${Answerusia} tahun. Tak terasa berjalannya waktu telah menambah usiamu 😭😭. Semoga ${Answerharapan} yang menjadi harapanmu ke depannya dapat terwujud dan aku doakan kamu bisa mendapatkan ${Answerkado} yang kamu inginkan 🤭🤭. Jujur aku cuma bisa mendoakan aja hehe dan satu lagi semoga ${Answercitacita} yang menjadi impian dan cita-citamu dapat menjadi kenyataan karena, 
-                    pepatah mengatakan Bermimpilah setinggi langit, karena jika kamu jatuh, kamu akan mendarat di antara bintang-bintang.
-                    Boleh bermimpi setinggi-tingginya tapi inget, kalo ketinggian terus cuma jadi halu mending gak usah wkwkwk 😁😁😁. 
-                    Dan kalo kamu tahu kenapa tadi nanya makanan favorit? ya sebenernya nanya aja si iseng aja gituu sama lagi gabut juga jadinya bikin website ini deh 😌😌 hehe 😄😄.
-                    Oh ya kalo kamu suka makan ${Answermakanan} jangan lupa undang aku kita makan bareng traktir yaaaahh!!!! 😋😜.
-                    Itu aja yang ingin kusampaikan semoga dapat membuat senyuman diwajahmu walaupun gak ada lucu-lucunya.</p><br>
-                    <p>Salam manis dariku untukmu 😸😸.</p>
-                    <div>
-                        <img id="image-left" src="pngegg (1).png">
-                    </div>
-                    <div>
-                        <img id="image-right" src="pngegg (3).png">
-                    </div>
-                    `;
-
-            answersContainer.appendChild(answerItem);
-            resultContainer.appendChild(answersContainer);
-        }
 
         loadQuestion();
     </script>
 </body>
 </html>
-
-"Apa yang kamu harapkan kedepannya?",
-"Apa makanan kesukaan kamu?",
-"Kado apa yang kamu harapkan di ulang tahunmu?",
-"Apa cita-citamu?",
